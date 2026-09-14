@@ -12,10 +12,10 @@
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--white); color: var(--ink); font: 1rem/1.6 var(--sans); }
+body { overflow-wrap: anywhere; margin: 0; background: var(--white); color: var(--ink); font: 1rem/1.6 var(--sans); }
 a { color: inherit; }
 .page { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
-.masthead { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+.masthead { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
 .wordmark { font: italic 1.45rem var(--serif); }
 .small-heart { color: var(--rose); margin-left: .25rem; }
 .tiny-date { font-size: .75rem; letter-spacing: .15em; color: var(--muted); }

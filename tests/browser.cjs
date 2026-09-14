@@ -38,7 +38,7 @@ const fs = require("node:fs");
           }
           await page.setViewportSize({width:375, height:900});
           await page.evaluate(() => document.documentElement.style.fontSize = "200%");
-          console.log("Zoom layout", await page.evaluate(() => [...document.querySelectorAll("body *")].filter(el => el.getBoundingClientRect().right > innerWidth + 1).map(el => ({tag:el.tagName, cls:el.className, width:el.getBoundingClientRect().width}))));
+          console.log("Zoom layout", await page.evaluate(() => ({width:innerWidth, scroll:document.documentElement.scrollWidth, elements:[...document.querySelectorAll("body *")].filter(el => el.scrollWidth > el.clientWidth + 1).map(el => ({tag:el.tagName, cls:el.className, scroll:el.scrollWidth, client:el.clientWidth}))})));
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "texto al 200%");
           await page.evaluate(() => document.documentElement.style.fontSize = "");
           await page.emulateMedia({reducedMotion:"reduce"});
