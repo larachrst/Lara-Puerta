@@ -20,9 +20,9 @@ a { color: inherit; }
 .small-heart { color: var(--rose); margin-left: .25rem; }
 .tiny-date { font-size: .75rem; letter-spacing: .15em; color: var(--muted); }
 .hero { position: relative; text-align: center; padding: 2.5rem 0 2.75rem; }
-.hero::before { content: ""; position: absolute; z-index: -1; inset: 0 -1rem; background: radial-gradient(ellipse at 50% 40%, #fff6f8 0, #fff 66%); pointer-events: none; }
+.hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 50% 40%, #fff6f8 0, #fff 66%); pointer-events: none; }
 .eyebrow { margin: 0; font-size: .75rem; letter-spacing: .16em; font-weight: 500; color: var(--muted); }
-h1 { font: 400 clamp(3.25rem, 10vw, 5.7rem)/1.04 var(--serif); letter-spacing: -.045em; margin: 1.2rem 0 1.3rem; }
+h1 { overflow-wrap: anywhere; font: 400 clamp(3.25rem, 10vw, 5.7rem)/1.04 var(--serif); letter-spacing: -.045em; margin: 1.2rem 0 1.3rem; }
 h1 em { color: var(--rose); font-weight: 400; }
 .start-date { color: var(--muted); font-size: .875rem; margin: 0; }
 .ornament { display: flex; gap: 1rem; align-items: center; justify-content: center; color: var(--rose); margin: 1.3rem 0; font-size: 1.3rem; }

@@ -38,11 +38,12 @@ const fs = require("node:fs");
           }
           await page.setViewportSize({width:375, height:900});
           await page.evaluate(() => document.documentElement.style.fontSize = "200%");
+          console.log("Zoom layout", await page.evaluate(() => [...document.querySelectorAll("body *")].filter(el => el.getBoundingClientRect().right > innerWidth + 1).map(el => ({tag:el.tagName, cls:el.className, width:el.getBoundingClientRect().width}))));
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "texto al 200%");
           await page.evaluate(() => document.documentElement.style.fontSize = "");
           await page.emulateMedia({reducedMotion:"reduce"});
           assert.equal(await page.locator(".hero").evaluate(el => getComputedStyle(el).animationName), "none");
-          await page.route("https://open.spotify.com/**", route => route.fulfill({status:200, contentType:"text/html", body:"Playlist destination verified"}));
+          await context.route("https://open.spotify.com/**", route => route.fulfill({status:200, contentType:"text/html", body:"Playlist destination verified"}));
           const popupPromise = page.waitForEvent("popup");
           await page.locator("#playlist-link").click();
           const popup = await popupPromise;
