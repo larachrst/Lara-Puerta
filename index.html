@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffafb">
+  <meta name="description" content="Nuestro tiempo juntos. Desde el 25 de julio de 2026, cada segundo es parte de nuestra historia.">
+  <title>Nuestro tiempo ♡</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#nuestro-tiempo">Ir al contador</a>
+  <div class="page">
+    <header class="masthead">
+      <span class="wordmark">tú &amp; yo<span class="small-heart" aria-hidden="true"> ♡</span></span>
+      <time class="tiny-date" data-short-date datetime="2026-07-25">25.07.2026</time>
+    </header>
+    <main id="nuestro-tiempo">
+      <section class="hero" aria-labelledby="title">
+        <p class="eyebrow">EL COMIENZO DE TODO LO BONITO</p>
+        <h1 id="title">Nuestro tiempo<br><em>juntos.</em></h1>
+        <p class="start-date"><time id="start-date" datetime="2026-07-25T14:40:00-06:00">25 de julio de 2026 · 14:40</time></p>
+        <div class="ornament" aria-hidden="true"><span></span>♡<span></span></div>
+        <!-- El lector de pantalla puede leer el contador sin anuncios cada segundo. -->
+        <div class="counter" role="timer" aria-live="off" aria-label="Tiempo que llevamos juntos">
+          <div class="unit"><span class="number" id="years">00</span><span class="label" id="years-label">años</span></div>
+          <div class="unit"><span class="number" id="months">00</span><span class="label" id="months-label">meses</span></div>
+          <div class="unit"><span class="number" id="days">00</span><span class="label" id="days-label">días</span></div>
+          <div class="unit clock"><span class="number" id="hours">00</span><span class="label" id="hours-label">horas</span></div>
+          <div class="unit clock"><span class="number" id="minutes">00</span><span class="label" id="minutes-label">minutos</span></div>
+          <div class="unit clock"><span class="number" id="seconds">00</span><span class="label" id="seconds-label">segundos</span></div>
+        </div>
+        <p id="counter-status" class="status" role="status" hidden></p>
+        <noscript><p class="status">Activa JavaScript para ver nuestro tiempo juntos.</p></noscript>
+        <p class="love-note">Qué bonito que el tiempo<br>nos esté pasando <em>juntos.</em></p>
+      </section>
+      <section class="music" aria-labelledby="music-title">
+        <div class="music-icon" aria-hidden="true">♫</div>
+        <div class="music-copy">
+          <p class="eyebrow">LA BANDA SONORA DE LO NUESTRO</p>
+          <h2 id="music-title">Hay canciones que son un lugar.</h2>
+          <p>Y las nuestras siempre me llevan a ti.</p>
+        </div>
+        <a id="playlist-link" class="playlist-button" href="https://open.spotify.com/playlist/5QHjeTMbXn9gg1KQ9jpVIE?si=MbZfCyoORVeagJxXU8hp9w&amp;utm_source=copy-link&amp;pi=D6EYwWaESGC-x&amp;pt=a8857941120dca815d912df38e5d5713" target="_blank" rel="noopener noreferrer">
+          Escuchar nuestra playlist <span aria-hidden="true">↗</span><span class="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+      </section>
+    </main>
+    <footer><span>Una historia. Infinitos momentos.</span><span class="infinity" aria-hidden="true">∞</span><time data-short-date datetime="2026-07-25">25.07.2026</time></footer>
+  </div>
+</body>
+</html>

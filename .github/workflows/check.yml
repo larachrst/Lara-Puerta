@@ -1,0 +1,22 @@
+name: Verificar el sitio
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Probar calendario
+        run: node tests/counter.cjs
+      - name: Preparar navegadores para revisión
+        run: npm install --no-save --package-lock=false playwright@1.58.2
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Probar página en teléfono y computadora
+        run: node tests/browser.cjs
