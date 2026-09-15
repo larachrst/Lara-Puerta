@@ -1,6 +1,6 @@
 # Nuestro tiempo ♡
 
-Una página para nuestra historia, desde el **25 de julio de 2026 a las 14:40**, en **America/Mexico_City**. HTML, CSS y JavaScript sin frameworks, cuentas adicionales ni servidor propio.
+Una página que cuenta nuestro tiempo juntos, desde el **25 de julio de 2026 a las 14:40**, en **America/Mexico_City**.
 
 ## 1. Archivos
 - `index.html`: estructura, textos y enlace de respaldo.
