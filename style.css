@@ -82,3 +82,23 @@ a:focus-visible { outline: 3px solid var(--rose-dark); outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Se conserva el PNG original: invertir y mezclar elimina visualmente el fondo
+   blanco y deja el logotipo blanco, como el texto del botón (incluso al pasar el cursor). */
+.spotify-logo { display: block; width: 6.75rem; max-width: 100%; height: auto; min-width: 0; filter: invert(1); mix-blend-mode: screen; }
+.playlist-button { isolation: isolate; }
+.music-copy { min-width: 0; }
+
+/* El recuerdo comparte la paleta y las tipografías de la página.
+   El tamaño está limitado para no ampliar innecesariamente la foto original. */
+.memory { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 1.75rem; margin-top: 2rem; padding: 2rem 1.2rem; border: 1px solid var(--line); border-radius: 1.4rem; background: var(--white); }
+.memory-copy { min-width: 0; text-align: center; }
+.memory-heart { display: block; color: var(--rose); font-size: 1.6rem; margin-bottom: .65rem; }
+.memory blockquote { margin: 0 0 1rem; }
+.memory blockquote p { margin: 0; color: var(--ink); font: italic 400 clamp(1.6rem, 3vw, 2.25rem)/1.4 var(--serif); }
+.verse-reference { display: inline-block; color: var(--rose-dark); font-size: .875rem; text-underline-offset: .25em; padding-block: .5rem; }
+.memory-photo { width: min(100%, 297px); min-width: 0; margin: 0; justify-self: center; padding: .5rem; background: var(--blush); border: 1px solid var(--line); border-radius: 1.15rem; box-shadow: 0 5px 20px #63263f08; }
+.memory-photo img { display: block; width: 100%; height: auto; border-radius: .7rem; }
+@media (min-width: 48rem) {
+  .memory { grid-template-columns: minmax(0, 1fr) minmax(0, 297px); padding: 2.25rem 3rem; gap: 2rem; }
+}

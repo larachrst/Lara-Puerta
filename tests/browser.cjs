@@ -8,10 +8,10 @@ const fs = require("node:fs");
 (async () => {
   const root = path.resolve(__dirname, "..");
   const server = http.createServer((req, res) => {
-    const allowed = {"/": "index.html", "/index.html":"index.html", "/style.css":"style.css", "/script.js":"script.js", "/favicon.svg":"favicon.svg"};
+    const allowed = {"/": "index.html", "/index.html":"index.html", "/style.css":"style.css", "/script.js":"script.js", "/favicon.svg":"favicon.svg", "/assets/spotify.png":"assets/spotify.png", "/assets/nuestro-recuerdo.png":"assets/nuestro-recuerdo.png"};
     const file = allowed[req.url];
     if (!file) { res.writeHead(404); res.end(); return; }
-    const types = {html:"text/html", css:"text/css", js:"text/javascript", svg:"image/svg+xml"};
+    const types = {html:"text/html", css:"text/css", js:"text/javascript", svg:"image/svg+xml", png:"image/png"};
     res.setHeader("Content-Type", types[file.split(".").pop()]);
     res.end(fs.readFileSync(path.join(root,file)));
   });
@@ -28,6 +28,9 @@ const fs = require("node:fs");
           page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
           await page.clock.install({time: new Date("2026-08-25T20:40:00Z")});
           await page.goto("http://127.0.0.1:" + server.address().port);
+          await page.locator(".memory-photo").scrollIntoViewIfNeeded();
+          await page.locator(".memory-photo img").evaluate(img => img.decode());
+          assert.equal(await page.locator(".spotify-logo").evaluate(img => img.complete && img.naturalWidth > 0), true);
           assert.equal(await page.locator("#months").innerText(), "01");
           await page.clock.runFor(2100);
           assert.equal(await page.locator("#seconds").innerText(), "02");
