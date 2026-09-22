@@ -26,7 +26,9 @@ const fs = require("node:fs");
           const errors = [];
           page.on("pageerror", error => errors.push(error.message));
           page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
-          await page.clock.install({time: new Date("2026-08-25T20:40:00Z")});
+          // Pausar antes de navegar: la carga de imágenes no debe avanzar el reloj de prueba.
+          await page.clock.install({time: new Date("2026-08-25T20:39:00Z")});
+          await page.clock.pauseAt(new Date("2026-08-25T20:40:00Z"));
           await page.goto("http://127.0.0.1:" + server.address().port);
           await page.locator(".memory-photo").scrollIntoViewIfNeeded();
           await page.locator(".memory-photo img").evaluate(img => img.decode());
